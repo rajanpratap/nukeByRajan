@@ -1,4 +1,4 @@
-
+import constants as as _constants
 
 def wire_in(path, source_node, nuke):
   """Method to paste nuke script of a read node(the one from which it is created) to a current nuke session replacing that read node.
