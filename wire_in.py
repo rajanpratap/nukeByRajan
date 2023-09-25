@@ -38,7 +38,7 @@ def wire_in(path, source_node, nuke):
     pnode.setXYpos(pnode.xpos()+offset_x, pnode.ypos()+offset_y)
   
   #create a NoOp node within appropriate group, just below source Node(all connections are auto preserved)
-  _dag_select.deselect_all()
+  deselect_all()
   input_node = nuke.createNode("NoOp")
   input_node["label"].setValue("{0} render script".format(node.fullName()))
   newp = wnode.xpos(), wnode.ypos()
@@ -51,4 +51,8 @@ def wire_in(path, source_node, nuke):
   
   input_node.setInput(0, write_node.input(0)
   terminal_node.setInput(0, input_node)
-    
+
+def deselectall(nuke):
+  for node in nuke.allNodes():
+    node.setSelected(False)
+  
